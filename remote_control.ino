@@ -19,8 +19,7 @@ void miotQuery(int32_t queryCode);
 void dataRead(const String & data);
 void miotPowerState(const String & state);
 
-void setup()
-{
+void setup(){
     // 初始化串口
     Serial.begin(115200);
     BLINKER_DEBUG.stream(Serial);
@@ -46,12 +45,12 @@ void setup()
      BlinkerMIOT.attachPowerState(miotPowerState);
 }
 
-void loop() {
+void loop(){
     Blinker.run();
 }
 
-void SmartConfig()//自动连接上一次wifi
-{
+//自动连接上一次wifi
+void SmartConfig(){
   WiFi.mode(WIFI_STA);
   Serial.println("\r\nWait for Smartconfig...");
   WiFi.beginSmartConfig();
@@ -94,6 +93,7 @@ bool AutoConfig(){
     Serial.println("WIFI AutoConfig Faild!" );
     return false;
 }
+
 //按钮回调函数
 void button1_callback(const String & state){
   digitalWrite(GPIO,!digitalRead(GPIO));
